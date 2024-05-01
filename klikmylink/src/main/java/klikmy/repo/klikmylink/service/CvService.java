@@ -22,6 +22,17 @@ public class CvService {
     @Autowired
     private TemplateRepository templateRepository; 
 
+    public boolean checkUrl(String url){
+        Cv cvExisting = cvRepository.findByUserUrl(url);
+        if (cvExisting == null) {
+            return true;
+        }
+        if (cvExisting.getUserUrl().equals(url)) {
+            return false;
+        }
+        return true;
+    }
+
     public Cv addCv(CreateCvRequestDTO dto) {
         Cv newCv = new Cv();
         newCv.setFirstName(dto.getFirstName());

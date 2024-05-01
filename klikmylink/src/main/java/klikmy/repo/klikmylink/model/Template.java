@@ -20,6 +20,8 @@ public class Template {
     private Long id;
 
     private String name;
+    private String contributor;
+    private Double price;
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "idCategory")
@@ -28,10 +30,6 @@ public class Template {
     @ManyToOne
     @JoinColumn(name = "theme_id", referencedColumnName = "idTheme")
     private Theme theme;
-
-    private String contributor;
-    private Double price;
-
 
     @ManyToMany(mappedBy = "templates")
     private List<Cv> cvs;
