@@ -22,12 +22,22 @@ public class CvRestController {
     }
 
     @PostMapping("/url/{userUrl}")
-    public ResponseEntity<String> editTraction(@PathVariable String userUrl) {
+    public ResponseEntity<String> checkUrlUser(@PathVariable String userUrl) {
         boolean exists = cvService.checkUrl(userUrl);
         if (exists) {
             return ResponseEntity.ok("URL is available");
         } else {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("URL already exists");
+        }
+    }
+
+    @GetMapping("/url/{userUrl}")
+    public ResponseEntity<?> getCvByUserUrl(@PathVariable String userUrl) {
+        Cv cv = cvService.getCvByUserUrl(userUrl);
+        if (cv != null) {
+            return ResponseEntity.ok(cv);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No CV found with the provided URL");
         }
     }
 

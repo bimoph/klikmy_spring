@@ -25,10 +25,15 @@ public class Cv {
     private String summary;
     private String userUrl;
     private String email;
-    private String phoneNumber;
+    private String phoneNumber; // whatsapp, tiktok, twitter
+    private String whatsapp;
+    private String tiktok;
+    private String twitter;
     private String linkedinLink;
     private String instagramLink;
     private String githubLink;
+
+    private List<String> userIs;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -57,4 +62,7 @@ public class Cv {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "cv_id") // foreign key in Project table
     private List<Project> projects;
+
+
+    
 }

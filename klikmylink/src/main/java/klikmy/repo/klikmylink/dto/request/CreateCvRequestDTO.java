@@ -24,9 +24,14 @@ public class CreateCvRequestDTO {
     private String userUrl;
     private String email;
     private String phoneNumber;
+    private String whatsapp;
+    private String tiktok;
+    private String twitter;
     private String linkedinLink;
     private String instagramLink;
     private String githubLink;
+
+    private List<String> userIs;
 
     private List<Long> idTemplate;
     private List<Experience> experiences;

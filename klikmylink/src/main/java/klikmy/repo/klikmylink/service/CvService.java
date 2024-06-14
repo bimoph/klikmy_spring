@@ -46,6 +46,10 @@ public class CvService {
         newCv.setLinkedinLink(dto.getLinkedinLink());
         newCv.setInstagramLink(dto.getInstagramLink());
         newCv.setGithubLink(dto.getGithubLink());
+        newCv.setUserIs(dto.getUserIs());
+        newCv.setWhatsapp(dto.getWhatsapp());
+        newCv.setTiktok(dto.getTiktok());
+        newCv.setTwitter(dto.getTwitter());
 
         List<Template> listTemplate = new ArrayList<>();
         for (Long idTemplate : dto.getIdTemplate()) {
@@ -57,7 +61,14 @@ public class CvService {
         newCv.setSkills(dto.getSkills());
         newCv.setCertificates(dto.getCertificates());
         newCv.setProjects(dto.getProjects());
+
+
         return cvRepository.save(newCv);
+    }
+
+    public Cv getCvByUserUrl(String userUrl) {
+        // Logic to retrieve Cv from repository by userUrl
+        return cvRepository.findByUserUrl(userUrl);
     }
 }
 

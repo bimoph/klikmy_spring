@@ -12,4 +12,5 @@ import jakarta.transaction.Transactional;
 @Transactional
 public interface CvRepository extends JpaRepository<Cv, Long> {
     Cv findByUserUrl (String url);
+
 }
