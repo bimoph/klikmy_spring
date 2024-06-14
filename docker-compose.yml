@@ -16,7 +16,7 @@ services:
     networks:
       - frontend-network
       - backend-network
-    platform: linux/amd64
+    # platform: linux/amd64
     
   db:
     image: postgres:14-alpine
